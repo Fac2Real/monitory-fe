@@ -1,5 +1,5 @@
 import React from "react";
-import { RiskLevel } from "../types/AlarmEvent";
+import { RiskLevel } from "../types/Alarm";
 
 type ToastProps = {
   message: string;

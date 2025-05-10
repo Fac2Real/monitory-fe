@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import MonitorBox from "../components/MonitorBox";
 import useWebSocket from "../websocket/useWebSocket";
 import { Link } from "react-router-dom";
@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 
 export default function Monitoring() {
   const [zoneList, setZoneList] = useState([]);
-
-  // 메시지 예: {"zoneId":"PID-790","sensorType":"humid","level":2}
-  useWebSocket("/topic/zone", (data) => {
+  
+  // 렌더링 될때마다 불필요한 websocket 연결을 피하기 위해 useCallback 사용
+  const handleWebSocketMessage = useCallback((data) => {
     setZoneList((prev) =>
       prev.map((zone) =>
         zone.zoneId === data.zoneId
@@ -24,7 +24,9 @@ export default function Monitoring() {
           : zone
       )
     );
-  });
+  }, []);
+  // 메시지 예: {"zoneId":"PID-790","sensorType":"humid","level":2}
+  useWebSocket("/topic/zone", handleWebSocketMessage);
   // 필요한 데이터가.. 무엇일까.....
   // 1. 공간명 : 화면에 뿌려주기
   // 2. 공간아이디: 웹소켓에서 준 거랑 매핑해주기!

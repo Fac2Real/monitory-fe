@@ -13,6 +13,17 @@ export default function ZoneDetail_2() {
 
   /* mock data */
   /* zoneId로 detail 정보를 요청하면, 아래 정보를 줬으면 좋겠다...*/
+
+  // 최종 프로젝트
+  // 시뮬레이션 시각화 
+  // 핸드폰 앱으로 만들어서 센서 데이터 전송가능하게끔.
+
+  // 데이터 기반 의사 결정
+
+  // 줌으로 면접 녹화해보기
+
+  // cam이 아닌 클라우드 Am으로 말하기
+
   const mock_details_sensor = {
     zoneId: zoneId,
     zoneName: "생산 라인 A",

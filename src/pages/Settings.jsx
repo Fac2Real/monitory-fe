@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import SensorModal from "../components/SensorModal";
 import ZoneInfoBox from "../components/ZoneInfoBox";
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 import FacilityModal from "../components/FacilityModal";
 import EditModal from "../components/EditModal";
 /* ────────────────────────────────
@@ -82,7 +82,7 @@ export default function Settings() {
     ───────────────────────────────── */
   useEffect(() => {
   Promise.all([
-      axios.get("http://localhost:8080/api/zones/zoneitems"),    // zoneItems 1개만 써도 OK
+      axiosInstance.get("/api/zones/zoneitems"),    // zoneItems 1개만 써도 OK
     ])
       .then(([res]) => {
         const list = res.data.map((z) => ({
@@ -145,7 +145,7 @@ export default function Settings() {
   };
 
   const handleFacilityUpdate = (newValue) => {
-    axios.post("http://localhost:8080/api/equips", {
+    axiosInstance.post("/api/equips", {
       zoneName: selectedZone,
       equipName: newValue,
     });
@@ -174,7 +174,7 @@ export default function Settings() {
     // 여기에 editzone 수정 API
     console.log("공간명 변경 제출!");
 
-    axios.post(`http://localhost:8080/api/zones/${selectedZone}`, {
+    axiosInstance.post(`/api/zones/${selectedZone}`, {
       zoneName: newZoneName,
     });
 
@@ -197,7 +197,7 @@ export default function Settings() {
     if (!confirmed) return;
     else {
       try {
-        axios.post("http://localhost:8080/api/zones", {
+        axiosInstance.post("/api/zones", {
           zoneName: newZone,
         });
 

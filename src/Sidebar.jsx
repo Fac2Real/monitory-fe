@@ -7,13 +7,32 @@ import AwardIcon from "./assets/award_icon.svg?react";
 import BellIcon from "./assets/bell_icon.svg?react";
 import CloseIcon from "./assets/close_icon.svg?react";
 import Logo from "./assets/temp_logo.svg?react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useCallback, useState } from "react";
+
+import AlarmModal from "./components/AlarmModal";
+import axiosInstance from "./api/axiosInstance";
+import useWebSocket2 from "./websocket/useWebSocket";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
-  const alram_count = 3;
+  const [alram_count, setAlramCount] = useState(0); // 알림 개수
+  const [isModalOpen, setIsModalOpen] = useState(false); // 알림 모달 상태
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("Home");
+
+  const handleWebSocketMessage = useCallback((count) => {
+    console.log("WebSocket message received:", count);
+    // 알림 개수 업데이트
+    setAlramCount(count);
+  }, []);
+  // 웹소켓 연결
+  useWebSocket2("/topic/unread-count",handleWebSocketMessage);
+  // 첫 렌더링 시 알람 개수 초기화
+  useEffect(() => {
+    axiosInstance.get("/api/abnormal/unread-count");
+  }, []);
+
+
   useEffect(() => {
     if (location.pathname === "/") setCurrentPage("Home");
     else if (location.pathname.startsWith("/monitoring"))
@@ -198,15 +217,18 @@ export default function Sidebar() {
       </div>
       {
         <div className={isOpen ? "alram-box" : "alram-box sidebar-close"}>
-          <span className="icon">
-            <Link>
+          <span className="icon"onClick={() => {
+              setIsModalOpen(true)
+              console.log("알람 모달 열기");
+              }}>
+            <span className="icon">
               <BellIcon
                 fill={
                   alram_count > 0 ? (isOpen ? "#FFF" : "orangered") : "#FFF"
                 }
                 width="1.5rem"
               />
-            </Link>
+            </span>
             {isOpen && (
               <p className="alram-text">
                 {alram_count}건의 새로운 알림이 도착했습니다
@@ -215,6 +237,8 @@ export default function Sidebar() {
           </span>
         </div>
       }
+      {/* 알람 모달 */}
+      <AlarmModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </aside>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MiniMonitor from "../MiniMonitor";
 import mockSensorList from "../mock_data/mock_sensorlist";
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 
 export default function SensorSettings() {
   const [sensorFormData, setFormData] = useState({
@@ -16,8 +16,8 @@ export default function SensorSettings() {
   const [unregistered, setUnregistered] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/sensors/unregistered")
+    axiosInstance
+      .get("/api/sensors/unregistered")
       .then((res) => {
         setUnregistered(res.data);
       })
@@ -33,8 +33,8 @@ export default function SensorSettings() {
   };
 
   const handleButton = (e) => {
-    axios
-      .post(`http://localhost:8080/api/sensors/${sensorFormData.sensorId}`, {
+    axiosInstance
+      .post(`/api/sensors/${sensorFormData.sensorId}`, {
         sensorPurpose: sensorFormData.sensorPurpose,
         location: sensorFormData.sensorPosition,
         threshold: sensorFormData.sensorThres,
