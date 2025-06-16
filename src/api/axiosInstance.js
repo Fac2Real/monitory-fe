@@ -19,6 +19,7 @@ axiosInstance.interceptors.response.use(
       // 세션 만료 또는 인증 실패
       if (window.location.pathname !== "/login") {
         window.location.href = "/login"; // 리다이렉션
+        localStorage.removeItem("isLoggedIn"); // 로그인 상태 제거
       }
     }
     return Promise.reject(error);
