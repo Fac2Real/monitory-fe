@@ -50,7 +50,7 @@ function EquipItem({ equip, workerList, fetchEquips }) {
     })();
 
     return () => controller.abort();
-  }, [equip.equipId, equip.zoneId]);
+  }, [equip.equipId, equip.zoneId, equip.lastCheckDate]);
 
   // 날짜 계산 상수
   const tmp = 1000 * 60 * 60 * 24;
@@ -112,11 +112,11 @@ function EquipItem({ equip, workerList, fetchEquips }) {
         checkDate: newDate,
       })
       .then((res) => {
-        setEquips((prev) =>
-          prev?.map((e) =>
-            e.equipId == equip.equipId ? { ...e, lastCheckDate: newDate } : e
-          )
-        );
+        // setEquips((prev) =>
+        //   prev?.map((e) =>
+        //     e.equipId == equip.equipId ? { ...e, lastCheckDate: newDate } : e
+        //   )
+        // );
         fetchEquips();
       })
       .catch((e) => {});
