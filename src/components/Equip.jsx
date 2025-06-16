@@ -110,6 +110,10 @@ function EquipItem({ equip, workerList, fetchEquips }) {
     setIsEquipOpen(false);
   };
   const handleUpdateDate = (newDate, equip) => {
+    const confirm = window.confirm(
+      `${equip.equipName}의 점검 일자를 ${newDate}로 변경하시겠습니까?`
+    );
+    if (!confirm) return;
     axiosInstance
       .post(`/api/equips/${equip.equipId}/check-date`, {
         checkDate: newDate,
