@@ -46,7 +46,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
     removeToast(toast.eventId);
 
     // 알람 상세 페이지로 이동
-    navigate(`/zone/${toast.zoneId}`, {
+    navigate(`/monitoring`, {
       state: {
         zoneName: toast.zoneName,
       },

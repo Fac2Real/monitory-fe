@@ -95,7 +95,10 @@ function EquipItem({ equip, workerList, fetchEquips }) {
 
   const [isEquipOpen, setIsEquipOpen] = useState(false);
   const handleEquipModalOpen = () => {
-    if (predictedDateStr == "9999-12-31") {
+    if (
+      predictedDateStr == "9999-12-31" ||
+      predictedDateStr == "최근 점검 완료✅"
+    ) {
       alert(
         "최근 점검일은 예상 점검일을 기준으로 업데이트됩니다.\n예상 점검일이 없으면 수정할 수 없습니다."
       );
@@ -107,19 +110,17 @@ function EquipItem({ equip, workerList, fetchEquips }) {
     setIsEquipOpen(false);
   };
   const handleUpdateDate = (newDate, equip) => {
+    const confirm = window.confirm(
+      `${equip.equipName}의 점검 일자를 ${newDate}로 변경하시겠습니까?`
+    );
+    if (!confirm) return;
     axiosInstance
       .post(`/api/equips/${equip.equipId}/check-date`, {
         checkDate: newDate,
       })
-      .then((res) => {
-        // setEquips((prev) =>
-        //   prev?.map((e) =>
-        //     e.equipId == equip.equipId ? { ...e, lastCheckDate: newDate } : e
-        //   )
-        // );
+      .then(() => {
         fetchEquips();
-      })
-      .catch((e) => {});
+      });
   };
   return (
     <>
