@@ -114,12 +114,13 @@ function EquipTable({ log }) {
       </thead>
       <tbody>
         {log?.map((l, i) => {
+          console.log(l);
           return (
             <tr key={i}>
               <td>{l.dangerLevel}</td>
               <td>{l.abnormalId}</td>
               <td>{l.abnormalType}</td>
-              <td>{l.abnVal}</td>
+              <td>D-{l.abnVal}</td>
               <td>{new Date(l.detectedAt).toLocaleString()}</td>
               {/* <td>{l.control.controlStat}</td> */}
             </tr>
@@ -131,7 +132,7 @@ function EquipTable({ log }) {
 }
 
 export function EquipLogs({ equip }) {
-  if (equip.abnormals)
+  if (equip.facAbnormals)
     return (
       <>
         <div className="sensorlist">
