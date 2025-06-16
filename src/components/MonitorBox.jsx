@@ -25,6 +25,13 @@ export default function MonitorBox({ zone }) {
         className={`monitor-box moving-box click-box ${
           zone.level == 0 ? "" : zone.level == 1 ? "warn" : "urgent"
         }`}
+        title={
+          zone.zoneName.includes("중합")
+            ? "단량체를 화학적으로 결합시켜 고분자(폴리머)를 만듭니다"
+            : zone.zoneName.includes("탈휘")
+            ? "고분자에서 휘발성 성분(용매, 불순물 등)을 제거합니다"
+            : null
+        }
       >
         <div className="icon-container">
           <PageIcon width="2rem" stroke="gray" opacity="0.3" />

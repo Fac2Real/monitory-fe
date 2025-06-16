@@ -37,12 +37,6 @@ export default function ZoneDetail() {
     setSelectedWorker();
     setIsWorkerOpen(false);
   };
-  // const handleEquipModalOpen = () => {
-  //   setIsEquipOpen(true);
-  // };
-  // const onCloseEquip = () => {
-  //   setIsEquipOpen(false);
-  // };
 
   // 2) 모든 useEffect (조건 없이 항상 선언)
   useEffect(() => {
