@@ -173,7 +173,6 @@ npm run build
 ## 👨‍💻 팀 정보
 
 - [팀 소개 및 멤버 정보](./src/assets/data/teamData.js)
-- [서비스 개요 및 목표](./src/pages/HiddenPage.jsx)
 
 ---
 
