@@ -72,7 +72,7 @@ function ModalContents({ equip, workerList, onClose }) {
                       textAlign: "center",
                       margin: "0.5rem",
                     }}
-                    placeholder={`${worker?.name} 님에게 남길 추가 메시지를 입력하세요`}
+                    placeholder={`${worker?.workerName} 님에게 남길 추가 메시지를 입력하세요`}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                   ></input>
