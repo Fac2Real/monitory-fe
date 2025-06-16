@@ -17,7 +17,6 @@ export default function HiddenPage() {
               className={`team-tab-btn ${activeTab === tab ? "active" : ""}`}
               onClick={() => setActiveTab(tab)}
             >
-              {/* {activeTab === tab ? "About " : ""} */}
               {tab}
               {tab !== "Factoreal" ? " Team" : ""}
             </button>

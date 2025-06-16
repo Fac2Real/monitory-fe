@@ -39,16 +39,16 @@ export default function Header() {
                   HOME
                 </span>
               </Link>
-              {/* <Link to="/help" className="link-as-contents">
-                <span className="header-menu">
-                  <QuestionIcon width="1rem" fill="gray" opacity="0.7" />
-                  모니토리 사용법
-                </span>
-              </Link> */}
               <Link to="/team" className="link-as-contents">
                 <span className="header-menu">
                   <Logo width="1rem" fill="gray" opacity="0.7" />
                   Team Factoreal
+                </span>
+              </Link>
+              <Link to="/help" className="link-as-contents">
+                <span className="header-menu">
+                  <QuestionIcon width="1rem" fill="gray" opacity="0.7" />
+                  모니토리 사용법
                 </span>
               </Link>
               <Link className="link-as-contents">
