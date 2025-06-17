@@ -37,12 +37,6 @@ export default function ZoneDetail() {
     setSelectedWorker();
     setIsWorkerOpen(false);
   };
-  // const handleEquipModalOpen = () => {
-  //   setIsEquipOpen(true);
-  // };
-  // const onCloseEquip = () => {
-  //   setIsEquipOpen(false);
-  // };
 
   // 2) 모든 useEffect (조건 없이 항상 선언)
   useEffect(() => {
@@ -264,12 +258,12 @@ export default function ZoneDetail() {
       <div className="box-wrapper">
         <div className="top-box">
           설비 현황
-          <span
+          {/* <span
             className="refresh"
             onClick={() => setRefreshEquip((prev) => prev + 1)}
           >
             <RefreshIcon width="1.2rem" fill="#FFF" />
-          </span>
+          </span> */}
         </div>
         <div className="bottom-box">
           <Equip

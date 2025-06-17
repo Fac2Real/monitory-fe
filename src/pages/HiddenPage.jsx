@@ -17,7 +17,6 @@ export default function HiddenPage() {
               className={`team-tab-btn ${activeTab === tab ? "active" : ""}`}
               onClick={() => setActiveTab(tab)}
             >
-              {/* {activeTab === tab ? "About " : ""} */}
               {tab}
               {tab !== "Factoreal" ? " Team" : ""}
             </button>
@@ -77,21 +76,21 @@ export default function HiddenPage() {
               </div>
               <div className="info-contents">
                 <p>
-                  <strong style={{ fontSize: "1.5rem", color: "var(--blue)" }}>
+                  <strong style={{ fontSize: "1.5rem", color: "#608dff" }}>
                     첫째,
                   </strong>{" "}
                   제조업이라는 도메인에 대한 이해를 바탕으로, 기술 개발을 넘어
                   도메인 중심의 문제 해결 역량을 강화
                 </p>
                 <p>
-                  <strong style={{ fontSize: "1.5rem", color: "var(--blue)" }}>
+                  <strong style={{ fontSize: "1.5rem", color: "#608dff" }}>
                     둘째,
                   </strong>{" "}
                   실제 공정을 기반으로, 공정 내에서 발생하는 현실적인 문제를
                   도출하고, 이를 해결할 수 있는 시스템의 개발
                 </p>
                 <p>
-                  <strong style={{ fontSize: "1.5rem", color: "var(--blue)" }}>
+                  <strong style={{ fontSize: "1.5rem", color: "#608dff" }}>
                     셋째,
                   </strong>{" "}
                   산업 현장에서 발생하는 데이터를 수집, 가공, 분석한 후 실제

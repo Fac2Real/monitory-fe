@@ -4,7 +4,7 @@ import axiosInstance from "../api/axiosInstance";
 const statusKor = (status) => {
   if (status == 0) {
     return "정상";
-  } else if (status == 2) {
+  } else if (status == 1) {
     return "위험";
   } else {
     return "오류";

@@ -34,9 +34,9 @@ function EnvTable({ log }) {
             <tr key={i}>
               <td>{l.dangerLevel}</td>
               <td>{l.abnormalId}</td>
+              <td>{l.targetDetail}</td>
               <td>{l.abnormalType}</td>
-              <td>{l.abnVal}</td>
-              <td>{l.detectedAt}</td>
+              <td>{new Date(l.detectedAt).toLocaleString()}</td>
             </tr>
           );
         })}
@@ -75,7 +75,7 @@ function WorkerTable({ log }) {
           <th style={{ width: "2%" }}>위험도</th>
           <th style={{ width: "2%" }}>No.</th>
           <th>유형</th>
-          <th style={{ width: "2%" }}>값</th>
+          {/* <th style={{ width: "2%" }}>값</th> */}
           <th>발생 시각</th>
         </tr>
       </thead>
@@ -86,8 +86,8 @@ function WorkerTable({ log }) {
               <td>{l.dangerLevel}</td>
               <td>{l.abnormalId}</td>
               <td>{l.abnormalType}</td>
-              <td>{l.abnVal}</td>
-              <td>{l.detectedAt}</td>
+              {/* <td>{l.abnVal}</td> */}
+              <td>{new Date(l.detectedAt).toLocaleString()}</td>
             </tr>
           );
         })}
@@ -114,13 +114,14 @@ function EquipTable({ log }) {
       </thead>
       <tbody>
         {log?.map((l, i) => {
+          console.log(l);
           return (
             <tr key={i}>
               <td>{l.dangerLevel}</td>
               <td>{l.abnormalId}</td>
               <td>{l.abnormalType}</td>
-              <td>{l.abnVal}</td>
-              <td>{l.detectedAt}</td>
+              <td>D-{l.abnVal}</td>
+              <td>{new Date(l.detectedAt).toLocaleString()}</td>
               {/* <td>{l.control.controlStat}</td> */}
             </tr>
           );
@@ -131,7 +132,7 @@ function EquipTable({ log }) {
 }
 
 export function EquipLogs({ equip }) {
-  if (equip.abnormals)
+  if (equip.facAbnormals)
     return (
       <>
         <div className="sensorlist">

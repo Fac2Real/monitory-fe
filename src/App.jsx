@@ -35,7 +35,7 @@ export default function App() {
               <Route path="/report" element={<Report />} />
               <Route path="/zone/:zoneId" element={<ZoneDetail />} />
               <Route path="/help" element={<Help />} />
-              <Route path="/hidden" element={<HiddenPage />} />
+              <Route path="/team" element={<HiddenPage />} />
               <Route path="*" element={<BasicModal />} />
             </Routes>
           </div>

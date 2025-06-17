@@ -96,12 +96,12 @@ const AlarmModal = ({ isOpen, onClose }) => {
   const filteredAlarms = filter
     ? alarms?.filter((alarm) =>
         filter === "urgent"
-          ? alarm.abnormalType?.includes("위험")
+          ? alarm.dangerLevel === 2
           : filter === "warning"
-          ? alarm.abnormalType?.includes("경고")
+          ? alarm.dangerLevel === 1
           : filter === "normal"
-          ? !alarm.abnormalType?.includes("위험") &&
-            !alarm.abnormalType?.includes("경고")
+          ? !alarm.dangerLevel === 2 &&
+            !alarm.dangerLevel === 1
           : true
       )
     : alarms;
@@ -180,9 +180,9 @@ const AlarmModal = ({ isOpen, onClose }) => {
                     <div>
                       <strong
                         className={
-                          alarm.abnormalType?.includes("경고")
+                          alarm.dangerLevel == 1
                             ? "warning"
-                            : alarm.abnormalType?.includes("위험")
+                            : alarm.dangerLevel == 2
                             ? "urgent"
                             : "normal"
                         }

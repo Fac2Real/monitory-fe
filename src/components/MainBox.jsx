@@ -157,7 +157,7 @@ export default function MainBox({ isSidebarOpen }) {
     <>
       <div className="main-box" style={{ backgroundColor: "#eff7ff" }}>
         {showRobot && (
-          <Link to="/hidden">
+          <Link to="/team">
             <img src={YCSide} className="robot-side" />
           </Link>
         )}
