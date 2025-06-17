@@ -21,7 +21,7 @@ import zoneReportImg from "./img/zone_report.png";
 
 export const manualData = {
     "시작 · Home": {
-        content: "Monitory는 공장 환경/안전/설비 통합 모니터링을 위한 서비스입니다",
+        content: "Monitory는 공장 환경, 안전, 설비를 한눈에 통합 관리할 수 있는 스마트 팩토리 모니터링 플랫폼입니다.",
         features: [
             {
                 title: "로그인",
@@ -66,7 +66,7 @@ export const manualData = {
         ],
     },
     "모니터링": {
-        content: "모니터링 화면에 대한 설명입니다.",
+        content: "모니터링 페이지에서는 실시간으로 공장 내 다양한 구역의 상태와 이상 상황을 모니터링할 수 있습니다.",
         features: [
             {
                 title: "실시간 모니터링 - 전체 보기",
@@ -96,7 +96,7 @@ export const manualData = {
         ]
     },
     "작업자 관리": {
-        content: "작업자 관리 화면에 대한 설명입니다.",
+        content: "작업자 관리 페이지에서는 작업자 정보를 효율적으로 관리하고, 안전 상태를 실시간으로 확인할 수 있습니다.",
         features: [
             {
                 title: "작업자 목록 조회",
@@ -121,7 +121,7 @@ export const manualData = {
         ]
     },
     "설비/센서 관리": {
-        content: "설비/센서 관리 화면에 대한 설명입니다.",
+        content: "설비/센서 관리 페이지에서는 공장 내 설비와 센서를 등록·수정하고, 각 구역별 현황을 체계적으로 관리할 수 있습니다.",
         features: [
             {
                 title: "설비/센서 관리 페이지",
@@ -131,7 +131,7 @@ export const manualData = {
         ]
     },
     "월간 리포트": {
-        content: "지난 30일간의 데이터를 기반으로 월간 리포트를 생성합니다.",
+        content: "월간 리포트 페이지에서는 최근 30일간의 데이터를 기반으로 공장 운영 현황과 이상 발생 통계를 한눈에 확인할 수 있습니다.",
         features: [
             {
                 title: "월간 종합 리포트",
