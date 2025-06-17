@@ -21,7 +21,7 @@ export default function Login() {
   }, []);
 
   const handleLogin = () => {
-    const response = axiosInstance
+    axiosInstance
       .post("/api/auth/login", {
         username: userId,
         password: userPassword,
