@@ -34,6 +34,9 @@ src/
   ├── styles/                # CSS 파일
   ├── types/                 # 타입 정의 (알림 기능 전용)
   ├── websocket/             # 웹소켓 관련 훅
+
+public/
+  ├── manual.pdf                        # 사용자 매뉴얼 PDF 파일
 ```
 
 ---
@@ -65,17 +68,21 @@ src/
 - **세션 기반 로그인/로그아웃**
 - 로그인 상태에서만 주요 기능 접근 가능
 
+### 매뉴얼 참고
+
+- public 디렉토리 아래에 매뉴얼 파일 포함 [(링크)](./public/manual.pdf)
+
 ---
 
 ## 🛠️ 기술 스택
 
 - **React 18+**
 - **React Router v6**
-- **Axios** (API 통신)
-- **SockJS, @stomp/stompjs** (웹소켓)
-- **Vite** (개발 서버/빌드)
+- **Axios**
+- **SockJS, @stomp/stompjs**
+- **Vite**
 - **CSS Modules & Custom CSS**
-- **Jest/React Testing Library** (테스트)
+- **Jest/React Testing Library**
 
 ---
 
@@ -114,19 +121,19 @@ npm run build
 ## 🖥️ 주요 화면
 
 - **로그인 페이지**  
-  ![login](./src/assets/login_example.png)
+  ![login](./src/assets/data/img/login.png)
 
 - **메인 대시보드**  
-  ![dashboard](./src/assets/dashboard_example.png)
+  ![dashboard](./src/assets/data/img/home.png)
 
 - **월간 리포트**  
-  ![report](./src/assets/report_example.png)
+  ![report](./src/assets/data/img/total_report.png)
 
 ---
 
 ## 📡 웹소켓 구조
 
-- `/src/websocket/useWebSocket.js`  
+- `/src/websocket/useWebSocket.js`
   - `useWebSocket`, `useWebSocket2`, `useWebSocket3` 등 커스텀 훅 제공
   - 로그인 상태(`localStorage.isLoggedIn`)에 따라 연결/해제
   - 실시간 알림, 센서 데이터, 알림 개수 3개 채널 구독
@@ -148,7 +155,7 @@ npm run build
 ## 📝 코드 스타일 & 컨벤션
 
 - 함수형 컴포넌트 + React Hooks 사용
-- 스타일은 CSS 사용 권장 
+- 스타일은 CSS 사용 권장
 - API 통신은 `/src/api/axiosInstance.js`에서 관리
 - 상태 관리는 주로 useState/useEffect, 필요시 Context 사용
 
