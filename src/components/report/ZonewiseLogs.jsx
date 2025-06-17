@@ -8,7 +8,9 @@ export function EnvLogs({ log }) {
         <span>전체 환경 이상치 개수</span>
         <span>{log?.length ?? 0}건</span>
       </div>
-      <EnvTable log={log} />
+      <div style={{ overflow: "auto", maxHeight: "40vh" }}>
+        <EnvTable log={log} />
+      </div>
     </div>
   );
 }
@@ -17,13 +19,14 @@ function EnvTable({ log }) {
   if (!log) {
     return;
   }
+  console.log(log);
   return (
     <table className="worker-table">
       <thead>
         <tr className="table-header">
           <th style={{ width: "2%" }}>위험도</th>
           <th style={{ width: "2%" }}>No.</th>
-          <th>유형</th>
+          {/* <th>유형</th> */}
           <th style={{ width: "2%" }}>값</th>
           <th>발생 시각</th>
         </tr>
@@ -34,7 +37,7 @@ function EnvTable({ log }) {
             <tr key={i}>
               <td>{l.dangerLevel}</td>
               <td>{l.abnormalId}</td>
-              <td>{l.targetDetail}</td>
+              {/* <td>{l.targetDetail}</td> */}
               <td>{l.abnormalType}</td>
               <td>{new Date(l.detectedAt).toLocaleString()}</td>
             </tr>
@@ -58,7 +61,9 @@ export function WokrerLogs({ worker }) {
           </span>
           <span>{worker.workerCnt} 건</span>
         </div>
-        <WorkerTable log={worker.workerAbnormals} />
+        <div style={{ overflow: "auto", maxHeight: "40vh" }}>
+          <WorkerTable log={worker.workerAbnormals} />
+        </div>
       </div>
     </>
   );
@@ -145,7 +150,9 @@ export function EquipLogs({ equip }) {
             </span>
             <span>{equip.facCnt} 건</span>
           </div>
-          <EquipTable log={equip.facAbnormals} />
+          <div style={{ overflow: "auto", maxHeight: "40vh" }}>
+            <EquipTable log={equip.facAbnormals} />
+          </div>
         </div>
       </>
     );
