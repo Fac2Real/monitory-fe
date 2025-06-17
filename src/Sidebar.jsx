@@ -38,7 +38,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         setAlramCount(res.data.data);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname === "/") setCurrentPage("Home");
