@@ -4,7 +4,6 @@ import WorkerTable from "../components/WorkerTable";
 import WorkerInfoModal from "../components/modal/WorkerInfoModal";
 import RegisterWorker from "../components/RegisterWorker";
 import SafetyCallModal from "../components/modal/SafetyCallModal";
-import { mock_workers } from "../mock_data/mock_workers";
 import "../styles/table.css";
 
 export default function Safety() {
@@ -25,8 +24,8 @@ export default function Safety() {
         setWorkerList(res.data.data);
       })
       .catch((e) => {
-        console.log("작업자 정보 조회 실패 - mock data를 불러옵니다", e);
-        setWorkerList(mock_workers);
+        setWorkerList([]);
+        console.error("작업자 정보를 불러오는 데 실패했습니다:", e);
       });
   });
 
