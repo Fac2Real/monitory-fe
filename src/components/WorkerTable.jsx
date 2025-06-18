@@ -90,7 +90,7 @@ export default function WorkerTable({
                   <select
                     id="status"
                     className="search-field"
-                    value={selectedStatus}
+                    value={selectedStatus ?? "전체"}
                     onChange={(e) => setSelectedStatus(e.target.value)}
                     disabled={searchType !== "byStatus"}
                   >

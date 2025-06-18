@@ -117,7 +117,7 @@ export default function ManagerSetting({ workerList, modalParam, zoneId }) {
               <p>담당자 선택</p>
               <select
                 onChange={(e) => setSelectedWorkerId(e.target.value)}
-                value={selectedWorkerId}
+                value={selectedWorkerId ?? ""}
                 disabled={cand?.length === 0}
               >
                 {cand?.map((c, i) => {

@@ -94,7 +94,7 @@ function ModalContents({ worker, workerList, onClose }) {
           <select
             style={{ height: "1.75rem", fontSize: "1rem", width: "20rem" }}
             onChange={(e) => setMode(e.target.value)}
-            value={mode}
+            value={mode ?? ""}
           >
             <option value="" disabled>
               호출 목적을 선택하세요
@@ -109,7 +109,7 @@ function ModalContents({ worker, workerList, onClose }) {
             <select
               style={{ height: "1.75rem", fontSize: "1rem", width: "20rem" }}
               onChange={(e) => setHelpWorkerId(e.target.value)}
-              value={helpWorkerId}
+              value={helpWorkerId ?? ""}
             >
               <option value="" disabled>
                 도움이 필요한 작업자를 선택하세요
@@ -131,7 +131,7 @@ function ModalContents({ worker, workerList, onClose }) {
             <select
               style={{ height: "1.75rem", fontSize: "1rem", width: "20rem" }}
               onChange={(e) => setEquipId(e.target.value)}
-              value={equipId}
+              value={equipId ?? ""}
             >
               <option value="" disabled>
                 점검이 필요한 설비를 선택하세요
