@@ -11,7 +11,7 @@ import WorkerIcon from "./assets/worker_icon.svg?react";
 import { useEffect, useCallback, useState } from "react";
 
 import AlarmModal from "./components/AlarmModal";
-import axiosInstance from "./api/axiosInstance";
+import axiosInstance, { resetAlertFlag } from "./api/axiosInstance";
 import { useWebSocket2 } from "./websocket/useWebSocket";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
@@ -38,6 +38,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         setAlramCount(res.data.data);
       })
       .catch((e) => console.log(e));
+    resetAlertFlag();
   }, [location.pathname]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Sidebar from "./Sidebar";
 import "./styles/style.css";
@@ -9,7 +9,7 @@ import Report from "./pages/Report";
 import Safety from "./pages/Safety";
 import ZoneDetail from "./pages/ZoneDetail";
 import { ToastProvider } from "./contexts/ToastProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Help from "./pages/Help";
 import BasicModal from "./components/modal/BasicModal";
