@@ -108,8 +108,9 @@ function ContactTable({ workerInfo, onClose, fetchWorkers }) {
             alert(e.response.data.message);
             return;
           }
-          console.log("저장 실패", e);
-          // onClose(true);
+          console.error("직원 정보 수정에 실패했습니다:", e);
+          alert("직원 정보 수정에 실패했습니다. 다시 시도해주세요.");
+          onClose(true);
         });
     }
   };

@@ -110,7 +110,6 @@ function EquipReport({ info, cnt }) {
   return (
     <>
       {info?.map((e, i) => {
-        console.log(e);
         return <EquipLogs key={i} equip={e} />;
       })}
     </>

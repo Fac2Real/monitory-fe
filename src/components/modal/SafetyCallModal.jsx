@@ -16,7 +16,8 @@ function ModalContents({ worker, workerList, onClose }) {
         setEquips(res.data.data);
       })
       .catch((e) => {
-        console.log(e);
+        console.error("설비 정보를 불러오는 데 실패했습니다:", e);
+        setEquips([]);
       });
   }, []);
 
@@ -36,11 +37,8 @@ function ModalContents({ worker, workerList, onClose }) {
         onClose(true);
       })
       .catch((e) => {
-        console.log(e);
-        alert(
-          "작업자 도움 요청에 실패했습니다.\n[원인]" +
-            e.response?.data?.errorDescription || e.response?.data?.data
-        );
+        console.error("작업자 도움 요청에 실패했습니다:", e);
+        alert("작업자 도움 요청에 실패했습니다. 다시 시도해주세요.");
         onClose(true);
       });
   };
@@ -61,11 +59,8 @@ function ModalContents({ worker, workerList, onClose }) {
         onClose(true);
       })
       .catch((e) => {
-        console.log("실패", e);
-        alert(
-          "설비 점검 요청에 실패했습니다.\n[원인]" +
-            e.response?.data?.errorDescription || e.response?.data?.data
-        );
+        console.error("설비 점검 요청에 실패했습니다:", e);
+        alert("설비 점검 요청에 실패했습니다. 다시 시도해주세요.");
         onClose(true);
       });
   };
@@ -84,11 +79,8 @@ function ModalContents({ worker, workerList, onClose }) {
         onClose(true);
       })
       .catch((e) => {
-        console.log(e);
-        alert(
-          "기타 요청에 실패했습니다.\n[원인]" +
-            e.response?.data?.errorDescription || e.response?.data?.data
-        );
+        console.error("기타 요청에 실패했습니다:", e);
+        alert("기타 요청에 실패했습니다. 다시 시도해주세요.");
         onClose(true);
       });
   };

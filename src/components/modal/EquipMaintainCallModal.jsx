@@ -19,7 +19,8 @@ function ModalContents({ equip, workerList, onClose }) {
         onClose(true);
       })
       .catch((e) => {
-        console.log(e);
+        console.error("직원 호출 요청에 실패했습니다:", e);
+        alert("직원 호출 요청에 실패했습니다. 다시 시도해주세요.");
       });
   };
   return (

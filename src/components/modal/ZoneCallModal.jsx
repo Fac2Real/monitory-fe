@@ -42,7 +42,8 @@ function ModalContents({ onClose, zoneId, level }) {
         setLoading(false);
       })
       .catch((e) => {
-        console.log("작업자 목록 조회 실패", e);
+        console.error("알림 전송 중 오류 발생:", e);
+        setWorkerList([]);
         if (e.status == 404) {
           setError("잘못된 접근입니다");
         } else {
