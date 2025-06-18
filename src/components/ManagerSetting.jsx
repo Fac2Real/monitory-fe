@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
-import { mock_workers, mock_manager } from "../mock_data/mock_workers";
 import WorkerTable from "./WorkerTable";
 import SafetyCallModal from "./modal/SafetyCallModal";
 export default function ManagerSetting({ workerList, modalParam, zoneId }) {

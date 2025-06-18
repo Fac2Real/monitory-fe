@@ -2,7 +2,6 @@ import axiosInstance from "../api/axiosInstance";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
-import { mock_report } from "../mock_data/mock_report";
 import YCSide from "../assets/img/monitory_character_side.png";
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;

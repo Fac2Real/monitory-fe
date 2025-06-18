@@ -6,10 +6,7 @@ import LogTable from "../components/LogTable";
 import WorkerInfoModal from "../components/modal/WorkerInfoModal";
 import WorkerTable from "../components/WorkerTable";
 import ManagerSetting from "../components/ManagerSetting";
-import { mock_loglist, mock_workers } from "../mock_data/mock_workers";
 import Equip from "../components/Equip";
-import { mock_equips } from "../mock_data/mock_equips";
-import EquipDateModal from "../components/modal/EquipDateModal";
 import SafetyCallModal from "../components/modal/SafetyCallModal";
 
 export default function ZoneDetail() {
@@ -77,7 +74,7 @@ export default function ZoneDetail() {
         setWorkerList(res.data.data);
       })
       .catch((e) => {
-        setWorkerList(mock_workers);
+        setWorkerList([]);
       });
   };
 
