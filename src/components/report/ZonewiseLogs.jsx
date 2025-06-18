@@ -19,7 +19,6 @@ function EnvTable({ log }) {
   if (!log) {
     return;
   }
-  console.log(log);
   return (
     <table className="worker-table">
       <thead>
@@ -119,7 +118,6 @@ function EquipTable({ log }) {
       </thead>
       <tbody>
         {log?.map((l, i) => {
-          console.log(l);
           return (
             <tr key={i}>
               <td>{l.dangerLevel}</td>

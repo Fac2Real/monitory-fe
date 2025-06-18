@@ -53,7 +53,10 @@ export default function Monitoring() {
 
         setZoneList(merged);
       })
-      .catch((e) => console.log("실시간 모니터링 페이지 : 로딩 실패", e));
+      .catch((e) => {
+        console.error("공간 목록을 불러오는 데 실패했습니다:", e);
+        setZoneList([]);
+      });
   }, []);
 
   return (

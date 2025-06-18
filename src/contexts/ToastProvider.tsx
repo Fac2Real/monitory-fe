@@ -35,13 +35,6 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const handleToastClick = async (toast: AlarmEvent) => {
-    // 알람 읽음 상태를 서버에 전달
-    await axiosInstance(`/api/abnormal/${toast.eventId}/read`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
     // 알람 삭제
     removeToast(toast.eventId);
 
@@ -49,6 +42,12 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
     navigate(`/monitoring`, {
       state: {
         zoneName: toast.zoneName,
+      },
+    });
+    await axiosInstance(`/api/abnormal/${toast.eventId}/read`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
     });
   };

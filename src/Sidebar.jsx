@@ -37,7 +37,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       .then((res) => {
         setAlramCount(res.data.data);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.error("알림 개수를 불러오는 데 실패했습니다:", e);
+        setAlramCount(0);
+      });
     resetAlertFlag();
   }, [location.pathname]);
 

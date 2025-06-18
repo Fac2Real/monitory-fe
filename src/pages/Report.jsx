@@ -16,7 +16,8 @@ export default function Report() {
           setReport(res.data.data);
         })
         .catch((e) => {
-          console.log("리포트 패치 실패", e);
+          console.error("리포트 패치 실패:", e);
+          setReport(null);
         });
     } else if (reportMode == "general") {
       axiosInstance
@@ -25,7 +26,8 @@ export default function Report() {
           setReport(res.data.data);
         })
         .catch((e) => {
-          console.log("리포트 패치 실패", e);
+          console.error("리포트 패치 실패:", e);
+          setReport(null);
         });
     }
   }, [reportMode]);

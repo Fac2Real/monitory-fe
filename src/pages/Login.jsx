@@ -32,7 +32,9 @@ export default function Login() {
         nav("/");
       })
       .catch((e) => {
-        console.log(e);
+        console.error("로그인 실패:", e);
+        setUserId("");
+        setUserPassword("");
         localStorage.removeItem("isLoggedIn");
         alert("아이디 또는 비밀번호가 잘못되었습니다.");
       });

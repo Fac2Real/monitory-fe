@@ -115,7 +115,10 @@ export default function Settings() {
         });
         setZoneList(updated);
       })
-      .catch((e) => console.log("임계값 업데이트 실패", e));
+      .catch((e) => {
+        console.error("임계값 업데이트 실패:", e);
+        alert("임계값 업데이트에 실패했습니다. 다시 시도해주세요.");
+      });
     setSensorModalOpen(false);
   };
 
@@ -148,7 +151,10 @@ export default function Settings() {
         setZoneList(updated);
         alert(`${newValue} 설비가 추가되었습니다.`);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.error("설비 추가 실패:", e);
+        alert("설비 추가에 실패했습니다. 다시 시도해주세요.");
+      });
     setFacilityModalOpen(false);
   };
 
@@ -204,7 +210,10 @@ export default function Settings() {
         setZoneList(updated);
         alert(`설비명이 ${newFacName}로 변경되었습니다`); // 없애도 되려나..
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.error("설비 이름 수정 실패:", e);
+        alert("설비 이름 수정에 실패했습니다. 다시 시도해주세요.");
+      });
 
     setFacEditOpen(false);
   };
