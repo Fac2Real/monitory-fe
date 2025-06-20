@@ -39,6 +39,8 @@ export default function WorkerTable({
     callbackModal(worker);
   };
 
+  console.log("filteredWorkers", filteredWorkers);
+
   return (
     <>
       <div className="table-container">
@@ -96,7 +98,7 @@ export default function WorkerTable({
                   >
                     <option value="전체">전체</option>
                     <option value={0}>정상</option>
-                    <option value={2}>위험</option>
+                    <option value={1}>위험</option>
                   </select>
                 </div>
               </div>

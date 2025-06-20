@@ -50,7 +50,7 @@ function ModalContents({ equip, workerList, onClose }) {
               <select
                 style={{ height: "1.75rem", fontSize: "1rem", width: "20rem" }}
                 onChange={(e) => setWorker(e.target.value)}
-                value={worker}
+                value={worker ?? null}
               >
                 <option value="" disabled>
                   점검을 요청할 직원을 선택하세요

@@ -44,6 +44,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
         zoneName: toast.zoneName,
       },
     });
+
     await axiosInstance(`/api/abnormal/${toast.eventId}/read`, {
       method: "POST",
       headers: {
