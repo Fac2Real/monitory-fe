@@ -135,7 +135,7 @@ function Example({ data }) {
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="count" stackId="a" fill="#1D4A7A" />
+        <Bar dataKey="count" stackId="a" fill="#1D4A7A" maxBarSize={45}/>
       </BarChart>
     </ResponsiveContainer>
   );
