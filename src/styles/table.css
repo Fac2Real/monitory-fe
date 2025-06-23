@@ -135,4 +135,5 @@ td[style*="textDecoration: underline"]:hover {
   /* background-color: var(--box-color); */
   width: 10%;
   white-space: nowrap;
+  background-color: black;
 }
